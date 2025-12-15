@@ -1,3 +1,15 @@
 spring:
   application:
     name: board
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/board_db
+    username: root
+    password: 1234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis:
+  mapper-locations: classpath:mapper/**/*.xml # ** -> 하위폴더 0개 이상 (0도 포함)
+  type-aliases-package: com.example.board.domain #DTO/VO 객체가 위치한 패키지 (XML에서 짧은 이름으로 쓰기 위함)
+  configuration:
+    map-underscore-to-camel-case: true #db의 스네이크케이스를 카멜케이스로 자동 변환
