@@ -12,7 +12,7 @@ spring:
     aws:
       credentials:
         access-key: ${IAM_ACCESS_KEY}
-        secret-key: ${IAM_SECERT_KEY}
+        secret-key: ${IAM_SECRET_KEY}
 
       region:
         static: "ap-northeast-2"
