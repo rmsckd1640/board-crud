@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.board.mapper.PostMapper">
+    <!--
+    id = 메서드 이름
+    parameterType = 메서드의 파라미터 타입 (설정에서 패키지 경로를 명시했기 때문에 객체 이름만 쓰면 됨)
+    useGeneratedKeys = DB에서 자동증가 했으면 필수. Mybatis가 증가된 ID값을 받음
+    keyProperty = 받은 ID값을 자바 객체에 넣어주기 위해 명시
+    -->
+    <insert id="save" parameterType="Post" useGeneratedKeys="true" keyProperty="postId">
+        insert into post (title, content, created_at, updated_at)
+        values (#{title}, #{content}, #{createdAt}, #{updatedAt})
+    </insert>
+</mapper>
