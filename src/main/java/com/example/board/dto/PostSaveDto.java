@@ -5,6 +5,7 @@ import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -28,5 +29,7 @@ public class PostSaveDto { //데이터 전달 역할
     @Size(max = 10, message = "태그는 최대 10개까지만 등록 가능합니다.")
     private List<String> tagNames;
 
-    //파일 타입과 이름은 MultipartFile에서 받아옴
+    //파일 타입과 이름, 크기 등은 MultipartFile에서 받아옴
+    //private List<MultipartFile> files;
+    //dto 웹 계층 의존 제거
 }
