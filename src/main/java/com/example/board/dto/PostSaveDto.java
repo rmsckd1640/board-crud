@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.util.List;
+
 //사용자가 전달하는 데이터 (request dto)
 //게시글 작성
 @Getter //불변성 지키기 위해 setter 사용 안함
@@ -21,5 +23,10 @@ public class PostSaveDto { //데이터 전달 역할
     @NotBlank(message = "내용이 비었습니다.")
     private String content;
 
+    //tag는 여러개가 들어올 수 있으므로 List
+    //리스트 내부의 각 문자열 길이 검증은 서비스에서 하거나 커스텀 애노테이션 사용
+    @Size(max = 10, message = "태그는 최대 10개까지만 등록 가능합니다.")
+    private List<String> tagNames;
 
+    //파일 타입과 이름은 MultipartFile에서 받아옴
 }

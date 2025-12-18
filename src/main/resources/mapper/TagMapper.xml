@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.board.mapper.TagMapper">
+    <!--
+    태그이름이 이미 있는지 확인
+    resultType = 조회된 결과를 어떤 객체로 반환할지 (예시: "String"으로도 반환 가능)
+    -->
+    <select id="findByName" parameterType="String" resultType="Tag">
+        select *
+        from tag
+        where tag_name = #{tagName}
+        limit 1
+    </select>
+
+    <insert id="save" parameterType="Tag" useGeneratedKeys="true" keyProperty="tagId">
+        insert into tag (tag_name)
+        values (#{tagName})
+    </insert>
+
+    <insert id="savePostTag">
+        insert into post_tag (post_id, tag_id)
+        VALUES (#{postId}, #{tagId})
+    </insert>
+</mapper>
