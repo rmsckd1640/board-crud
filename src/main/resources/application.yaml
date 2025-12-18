@@ -30,3 +30,8 @@ mybatis:
   type-aliases-package: com.example.board.domain #DTO/VO 객체가 위치한 패키지 (XML에서 짧은 이름으로 쓰기 위함)
   configuration:
     map-underscore-to-camel-case: true #db의 스네이크케이스를 카멜케이스로 자동 변환
+
+logging:
+  level:
+    #애플리케이션 내부 동작 로그 보기 위한 설정
+    com.example.board: debug
